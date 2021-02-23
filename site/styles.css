@@ -1,0 +1,113 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: powderblue;
+  margin: 0px;
+}
+h1 {
+  text-align: center;
+  height: 60px;
+}
+
+#upMenuDiv {
+  background-color: rgb(16, 156, 16);
+  margin: 5px;
+  border: 1px solid black;
+  padding: 0px 5px 0px 5px;
+}
+
+#navBar {
+  list-style-type: none;
+  font-size: large;
+  margin: 0px;
+  padding: 5px 10px 5px 10px;
+  /* border-width: 1px;
+  border-color: black;
+  border-style: solid; */
+  display: flex;
+  /*below are flex-box properties*/
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#navBar li {
+  margin: 10px;
+  padding: 10px;
+  text-align: justify;
+  cursor: pointer;
+}
+
+#navBar li:hover {
+  background-color: whitesmoke;
+}
+
+#navBar li:active {
+  background-color: chartreuse;
+}
+
+#navBar li.selected {
+  border-style: solid;
+  border-color: cornsilk;
+  /*border-width + margin === padding when unselected*/
+  border-width: 3px;
+  margin: 7px;
+}
+
+#mainDisplayDiv {
+  border-style: solid;
+  border-color: darkgray;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+#mainDisplayDiv[loadedApp="Pillars"] {
+  justify-content: space-around;
+  height: 400px;
+}
+
+#mainDisplayDiv[loadedApp="MeshViewer"] {
+  justify-content: flex-start;
+  background-color:teal;
+  height: 500px;
+}
+
+#mainCanvas {
+  padding-left: 0;
+  padding-right: 0;
+  border-style: solid;
+}
+
+#mainCanvas[loadedApp="Pillars"] {
+  width: 400px;
+}
+
+#mainCanvas[loadedApp="MeshViewer"] {
+  flex: 1 1 auto;
+}
+
+#leftControlPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex: 0 1 300px;
+}
+
+#leftControlPanel > div {
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  background-color:burlywood;
+  height: 50px;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+#leftControlPanel input {
+  margin: 5px;
+}

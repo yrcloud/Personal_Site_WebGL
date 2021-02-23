@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Test Plain JS Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <script>
+        alert("hello world");
+    </script> -->
+    <script src="./Shader.js"></script>
+    <script src="./pillars3dVS.js"></script>
+    <script src="./pillars3dFS.js"></script>
+    <script src="./RenderPillars.js"></script>
+    <script src="./bunnyObjString.js"></script>
+    <script type="module" src="./RenderBunny.js"></script>
+    <script type="module" src="./navBarBehavior.js"></script>
+</head>
+
+<body>
+    <h1>WebGL Visualization Tests</h1>
+    <!-- <div>hellow world</div> -->
+    <div id="mainInteractionArea">
+        <div id="upMenuDiv">
+            <ul id="navBar">
+                <li id="itemToLoadPillar" class = "selected">Procedural 3D graphics WebGL demo</li>
+                <li id="itemToLoadMesh" class = "unselected">Interactive Mesh Viewing WebGL demo (in progress)</li>
+            </ul>
+        </div>
+        <div id="mainDisplayDiv">
+            <div id="leftControlPanel"></div>
+        </div>
+        <script type="module">
+            import {NavBarBehaviors} from "./navBarBehavior.js";
+            const navBarBehaviors = new NavBarBehaviors();
+            navBarBehaviors.installHandler(
+                "itemToLoadPillar", 
+                navBarBehaviors.loadPillars.bind(navBarBehaviors)
+            );
+            navBarBehaviors.installHandler(
+                "itemToLoadMesh",
+                navBarBehaviors.loadBunny.bind(navBarBehaviors)
+            );
+            navBarBehaviors.loadPillars();
+            navBarBehaviors.installInteractionOnCanvas();
+        </script>
+    </div>
+</body>
+
+</html>
